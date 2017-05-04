@@ -20,7 +20,7 @@ The following input:
         STYLED_DIV = {
             'color': red,
             'position': relative,
-            'background-position': asdasd
+            'background-position': center
         };
         STYLED_SPAN = {
             'color': black,
@@ -39,7 +39,7 @@ The following input:
  
  ```css
  /*Foo.css*/
-.--Foo-STYLED_DIV{color : red;position : relative;background-position : asdasd;}
+.--Foo-STYLED_DIV{color : red;position : relative;background-position : center;}
 .--Foo-STYLED_SPAN{color : black;background-color : red;}
  ```
  
