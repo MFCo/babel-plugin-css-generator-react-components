@@ -38,14 +38,14 @@ The following input:
  Results in the following output:
  
  ```css
- /*Foo.css*/
-.--Foo-STYLED_DIV{color : red;position : relative;background-position : center;}
-.--Foo-STYLED_SPAN{color : black;background-color : red;}
+ /*foo.css*/
+ .foo-styled_div{color : red;position : relative;background-position : center;}
+.foo-styled_span{color : black;background-color : red;}
  ```
  
  ```css
  /*root.css*/
- @import './Foo.css';
+ @import './foo.css';
  ```
  
  ```javascript
@@ -63,7 +63,7 @@ The following input:
         return React.createElement(
             'div',
             {
-                className: '--Foo-STYLED_DIV'
+                className: 'foo-styled_div'
             },
             ' HOLA '
         );
