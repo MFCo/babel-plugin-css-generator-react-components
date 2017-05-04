@@ -30,7 +30,7 @@ The following input:
 
     render() {
         return (
-            <STYLED_DIV className={''} > HOLA </STYLED_DIV>)
+            <STYLED_DIV> HOLA </STYLED_DIV>)
     }
 }
  ```
