@@ -1,7 +1,6 @@
 # **babel-plugin-css-generator-react-components**
 
-Generate .css files from API, styles in JS Edit
-
+Write styles in your React Component, and get the component styled with .css files automatic generated
 ## Example
 
 The following input:
