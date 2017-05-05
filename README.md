@@ -15,7 +15,7 @@ The following input:
         console.log("mounted");
     }
 
-    marianoStyle() {
+    componentStyle() {
         STYLED_DIV = {
             'color': red,
             'position': relative,
