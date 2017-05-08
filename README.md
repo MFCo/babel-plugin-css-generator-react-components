@@ -77,12 +77,12 @@ function Element(props) {
     return React.createElement(
         'div',
         {
-            className: 'merka-element-styled_div sarasa'
+            className: 'element-styled_div sarasa'
         },
         React.createElement(
             'span',
             {
-                className: 'merka-element-styled_span'
+                className: 'element-styled_span'
             },
             'HOLA'
         )
@@ -102,7 +102,7 @@ class Foo extends React.Component {
         return React.createElement(
             'span',
             {
-                className: 'merka-foo-styled_span'
+                className: 'foo-styled_span'
             },
             ' HOLA '
         );
