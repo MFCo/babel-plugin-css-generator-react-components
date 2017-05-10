@@ -13,5 +13,9 @@
   "scripts": {},
   "keywords": [
     "babel-plugin"
-  ]
+  ],
+  "dependencies": {
+    "postcss": "^6.0.1",
+    "postcss-nested": "^2.0.2"
+  }
 }
