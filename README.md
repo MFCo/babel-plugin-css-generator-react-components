@@ -8,13 +8,24 @@ The following input:
  //INPUT.JS
  Element.componentStyle(
     STYLED_DIV = {
-        'color': red,
-        'position': relative,
-        'background-position': center
+        'color': 'red',
+        'position': 'relative',
+        'background-position': 'center',
+        '&:hover': {
+            'color': 'blue',
+            'position': 'absolute'
+        },
+        'background-color': 'green',
+        '&::after': {
+            'color': 'black'
+        },
+        '&__title': {
+            'font-size': '15px'
+        }
     },
     STYLED_SPAN = {
-        'color': black,
-        'background-color': red
+        'color': 'black',
+        'background-color': 'red'
     }
 );
 
@@ -33,13 +44,13 @@ class Foo extends React.Component {
 
     componentStyle() {
         STYLED_DIV = {
-            'color': red,
-            'position': relative,
-            'background-position': center
+            'color': 'red',
+            'position': 'relative',
+            'background-position': 'center'
         };
         STYLED_SPAN = {
-            'color': black,
-            'background-color': red
+            'color': 'black',
+            'background-color': 'red'
         };
     }
 
@@ -49,19 +60,63 @@ class Foo extends React.Component {
     }
 }
  ```
+ And the following .babelrc (now we support custom prefix)
+ ```JSON
+ {
+    "plugins": [
+        [
+            "babel-plugin",
+            {
+                "prefix": "sample"
+            }
+        ],
+        "transform-react-jsx"
+    ]
+}
+ ```
  
  Results in the following output:
  
  ```css
  /*foo.css*/
- .foo-styled_div{color : red;position : relative;background-position : center;}
-.foo-styled_span{color : black;background-color : red;}
+ .sample-foo-styled_div {
+  color: red;
+  position: relative;
+  background-position: center;
+}
+
+.sample-foo-styled_span {
+  color: black;
+  background-color: red;
+}
  ```
  
  ```css
  /*element.css*/
- .element-styled_div{color : red;position : relative;background-position : center;}
-.element-styled_span{color : black;background-color : red;}
+ .sample-element-styled_div {
+  color: red;
+  position: relative;
+  background-position: center;
+  background-color: green;
+}
+
+.sample-element-styled_div:hover {
+  color: blue;
+  position: absolute;
+}
+
+.sample-element-styled_div::after {
+  color: black;
+}
+
+.sample-element-styled_div__title {
+  font-size: 15px;
+}
+
+.sample-element-styled_span {
+  color: black;
+  background-color: red;
+}
  ```
  
  ```css
@@ -72,17 +127,16 @@ class Foo extends React.Component {
  
  ```javascript
  //BABEL OUTPUT
- 
-function Element(props) {
+ function Element(props) {
     return React.createElement(
         'div',
         {
-            className: 'element-styled_div sarasa'
+            className: 'sample-element-styled_div sarasa'
         },
         React.createElement(
             'span',
             {
-                className: 'element-styled_span'
+                className: 'sample-element-styled_span'
             },
             'HOLA'
         )
@@ -102,7 +156,7 @@ class Foo extends React.Component {
         return React.createElement(
             'span',
             {
-                className: 'foo-styled_span'
+                className: 'sample-foo-styled_span'
             },
             ' HOLA '
         );
