@@ -1,6 +1,12 @@
 # **babel-plugin-css-generator-react-components**
 
-Write styles in your React Component, and get the component styled with .css files automatic generated
+Write styles in your React Component, and get the component styled with .css files automatic generated. We support nested definitions. 
+
+Before the output we use Autoprefix, and PostCSS-nested.
+
+You can see in the following example how to make nested classes references.
+
+The main advantage in using our plugin is that you don't need to write classNames, or to be afraid about your CSS' classes names.
 ## Example
 
 The following input:
@@ -11,16 +17,23 @@ The following input:
         'color': 'red',
         'position': 'relative',
         'background-position': 'center',
+        'display': 'flex',
         '&:hover': {
             'color': 'blue',
             'position': 'absolute'
         },
         'background-color': 'green',
         '&::after': {
+            '@@target': 'div_afeter',
             'color': 'black'
         },
         '&__title': {
-            'font-size': '15px'
+            '@@target': 'div_title',
+            'font-size': '15px',
+            '&__subs': {
+                '@@target': 'div_title_sub',
+                'color': 'white'
+            }
         }
     },
     STYLED_SPAN = {
@@ -30,7 +43,7 @@ The following input:
 );
 
 function Element(props) {
-    return (<STYLED_DIV className="sarasa"><STYLED_SPAN>HOLA</STYLED_SPAN></STYLED_DIV>);
+    return (<STYLED_DIV className="sarasa jug" _target="div_title"><STYLED_SPAN>HOLA</STYLED_SPAN></STYLED_DIV>);
 }
 
 class Foo extends React.Component {
@@ -97,6 +110,9 @@ class Foo extends React.Component {
   color: red;
   position: relative;
   background-position: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   background-color: green;
 }
 
@@ -113,10 +129,15 @@ class Foo extends React.Component {
   font-size: 15px;
 }
 
+.sample-element-styled_div__title__subs {
+  color: white;
+}
+
 .sample-element-styled_span {
   color: black;
   background-color: red;
 }
+
  ```
  
  ```css
@@ -131,7 +152,7 @@ class Foo extends React.Component {
     return React.createElement(
         'div',
         {
-            className: 'sample-element-styled_div sarasa'
+            className: 'sample-element-styled_div sarasa jug sample-element-styled_div__title'
         },
         React.createElement(
             'span',
