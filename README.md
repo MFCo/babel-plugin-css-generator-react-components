@@ -69,7 +69,7 @@ class Foo extends React.Component {
 
     render() {
         return (
-            <STYLED_SPAN> Hi class! </STYLED_SPAN>)
+            <STYLED_SPAN> Hi! </STYLED_SPAN>)
     }
 }
  ```
@@ -179,7 +179,7 @@ class Foo extends React.Component {
             {
                 className: 'sample-foo-styled_span'
             },
-            ' Hi class! '
+            ' Hi! '
         );
     }
 }
