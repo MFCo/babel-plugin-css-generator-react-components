@@ -24,7 +24,7 @@ The following input:
         },
         'background-color': 'green',
         '&::after': {
-            '@@target': 'div_afeter',
+            '@@target': 'div_after',
             'color': 'black'
         },
         '&__title': {
@@ -43,7 +43,7 @@ The following input:
 );
 
 function Element(props) {
-    return (<STYLED_DIV className="sarasa jug" _target="div_title"><STYLED_SPAN>HOLA</STYLED_SPAN></STYLED_DIV>);
+    return (<STYLED_DIV className="container" _target="div_title"><STYLED_SPAN>Hi stateless!</STYLED_SPAN></STYLED_DIV>);
 }
 
 class Foo extends React.Component {
@@ -69,7 +69,7 @@ class Foo extends React.Component {
 
     render() {
         return (
-            <STYLED_SPAN> HOLA </STYLED_SPAN>)
+            <STYLED_SPAN> Hi! </STYLED_SPAN>)
     }
 }
  ```
@@ -152,14 +152,14 @@ class Foo extends React.Component {
     return React.createElement(
         'div',
         {
-            className: 'sample-element-styled_div sarasa jug sample-element-styled_div__title'
+            className: 'sample-element-styled_div container sample-element-styled_div__title'
         },
         React.createElement(
             'span',
             {
                 className: 'sample-element-styled_span'
             },
-            'HOLA'
+            'Hi stateless!'
         )
     );
 }
@@ -179,7 +179,7 @@ class Foo extends React.Component {
             {
                 className: 'sample-foo-styled_span'
             },
-            ' HOLA '
+            ' Hi! '
         );
     }
 }
