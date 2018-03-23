@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Babel easy plugin example",
   "author": "Mariano Cocirio",
   "main": "lib/index.js",
